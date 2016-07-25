@@ -99,6 +99,6 @@ module.exports = function(grunt) {
     });
     grunt.loadNpmTasks("grunt-nightwatch");
 };
+```
 
 Now , you can execute tests with the `grunt nightwatch` command.
-```
