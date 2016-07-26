@@ -102,3 +102,50 @@ module.exports = function(grunt) {
 ```
 
 Now , you can execute tests with the `grunt nightwatch` command.
+
+
+# Unit test with Mocha
+
+- Copy the `bootstrap.test.js` file
+- Copy the `mocha.opts` file
+- Write test in mocha in the `tests/integration/controllers` amd `tests/integration/models` folders
+- Execute `mocha test/bootstrap.test.js test/integration/**/*.test.js`
+ 
+> Controller test sample :
+
+```
+var request = require('supertest');
+
+describe('UserController', function() {
+
+  describe('#login()', function() {
+    it('should redirect to /mypage', function (done) {
+      request(sails.hooks.http.app)
+        .post('/users/login')
+        .send({ name: 'test', password: 'test' })
+        .expect(302)
+        .expect('location','/mypage', done);
+    });
+  });
+
+});
+```
+
+> Model test sample :
+
+```
+describe('UserModel', function() {
+
+  describe('#find()', function() {
+    it('should check find function', function (done) {
+      User.find()
+      .then(function(results) {
+        // some tests
+        done();
+      })
+      .catch(done);
+    });
+  });
+
+});
+```
