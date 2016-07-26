@@ -4,7 +4,7 @@
 
 Add to package.json the dependencies below :
 
-```
+```js
 "phantomjs": "^1.9.8",
 "nightwatch": "^0.8.6",
 "grunt-nightwatch": "^0.5.3",
@@ -22,7 +22,7 @@ npm install
 
 Add the setting file for nightwatch (/nightwatch.json) :
 
-```
+```js
 {
     "src_folders" : ["tests/nightwatch"],
     "output_folder" : "reports",
